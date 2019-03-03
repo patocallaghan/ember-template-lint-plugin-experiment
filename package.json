@@ -5,16 +5,25 @@
     "eslint-plugin"
   ],
   "scripts": {
+    "lint": "eslint .",
+    "start": "yarn run test:watch",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "fmt:prettier": "./node_modules/.bin/pretty-quick",
+    "fmt": "yarn fmt:prettier"
   },
   "dependencies": {
     "ember-template-lint": "^1.1.0"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "chai": "^4.2.0",
     "eslint": "^5.15.0",
-    "jest": "^24.1.0"
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "jest": "^24.1.0",
+    "prettier": "^1.16.4",
+    "pretty-quick": "^1.10.0"
   },
   "jest": {
     "testPathIgnorePatterns": [

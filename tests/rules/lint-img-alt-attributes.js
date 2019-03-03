@@ -1,5 +1,3 @@
-'use strict';
-
 const generateRuleTests = require('../helpers/rule-test-harness');
 
 generateRuleTests({
