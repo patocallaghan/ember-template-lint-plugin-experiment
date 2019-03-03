@@ -1,7 +1,5 @@
 // Respectfully stolen from https://github.com/ember-template-lint/ember-template-lint/blob/master/test/helpers/rule-test-harness.js
 
-'use strict';
-
 const expect = require('chai').expect;
 const Linter = require('ember-template-lint');
 
@@ -20,7 +18,9 @@ module.exports = function(options) {
     let DISABLE_ALL = '{{! template-lint-disable }}';
     let DISABLE_ONE = `{{! template-lint-disable ${options.name} }}`;
 
-    let linter, config, meta;
+    let linter;
+    let config;
+    let meta;
 
     function verify(template) {
       linter.config.rules[options.name] = config;
@@ -97,20 +97,20 @@ module.exports = function(options) {
           `passes with \`${template}\` when disabled via inline comment - single rule`,
           function() {
             meta = parseMeta(badItem);
-            let actual = verify(DISABLE_ONE + '\n' + template);
+            let actual = verify(`${DISABLE_ONE}\n${template}`);
 
             expect(actual).to.deep.equal([]);
-          }
+          },
         );
 
         testMethod(
           `passes with \`${template}\` when disabled via inline comment - all rules`,
           function() {
             meta = parseMeta(badItem);
-            let actual = verify(DISABLE_ALL + '\n' + template);
+            let actual = verify(`${DISABLE_ALL}\n${template}`);
 
             expect(actual).to.deep.equal([]);
-          }
+          },
         );
       }
     });
