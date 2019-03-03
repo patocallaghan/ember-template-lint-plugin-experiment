@@ -5,8 +5,12 @@
     "eslint-plugin"
   ],
   "scripts": {
+    "lint": "eslint .",
+    "start": "yarn run test:watch",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "fmt:prettier": "./node_modules/.bin/pretty-quick",
+    "fmt": "yarn fmt:prettier"
   },
   "dependencies": {
     "ember-template-lint": "^1.1.0"
